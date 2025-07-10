@@ -1,7 +1,10 @@
 
 class ProviderB{
+    constructor(successRate = 0.6){
+        this.successRate = successRate
+    }
     async send(email , subject , body){
-        if(Math.random() < 0.6) return true;
+        if(Math.random() < this.successRate) return true;
         throw new Error("ProviderB failed");
     }
 }
