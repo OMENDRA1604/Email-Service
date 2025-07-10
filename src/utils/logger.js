@@ -11,7 +11,7 @@ function getTime() {
 function writeLog(level , message){
     const logMessage = `[${getTime()}] [${level.toUpperCase()}] : ${message}\n`;
 
-    console.log(logMessage);
+    //console.log(logMessage);
 
     fs.appendFile(logFile , logMessage  , (err) => {
         if (err) console.log("Failed to write log:" , err);
