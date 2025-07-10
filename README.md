@@ -142,6 +142,14 @@ Test cases cover:
 
 ---
 
+## 📤 Deployment
+### 🔹 Platform: [Render](https://render.com)
+
+**🔗 Live Endpoint:**  
+👉 [https://email-service-eepy.onrender.com](https://email-service-eepy.onrender.com)
+
+---
+
 ## 🙋‍♂️ Author & Contact
 
 👤 **Omendra Singh**  
