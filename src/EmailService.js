@@ -13,10 +13,11 @@ class EmailService{
     isRateLimited() {
         const now = Date.now();
         this.timestamps.push(now);
-        while(this.timestamps.lenght && now - this.timestamps[0] > 60000){
+       
+        while(this.timestamps.length && now - this.timestamps[0] > 60000){
             this.timestamps.shift();
         }
-
+        
         return this.timestamps.length > this.rateLimit;
     }
 
@@ -25,10 +26,10 @@ class EmailService{
             try{
                 return await fn();    
             }catch(err){
-                await new Promises(res => setTimeout(res , 2 ** i * 1000));
+                await new Promise(res => setTimeout(res , 2 ** i * 1000));
             }
         }
-        throw new Error("All retires failed");
+        throw new Error("All retries failed");
     }
 
     async sendEmail( id , email , subject , body){

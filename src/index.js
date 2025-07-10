@@ -1,13 +1,21 @@
 require('dotenv').config();
 
 const express = require("express");
+const EmailService = require("./EmailService");
 
-const app = express();
 const PORT = process.env.PORT || 8000;
 
+const app = express();
 app.use(express.json());
 
-app.post('/send', (req , res) => {
+const emailService = new EmailService();
+
+app.post('/send', async(req , res) => {
+    const {id , email , subject , body} = req.body;
+
+    const status = await emailService.sendEmail(id , email , subject , body);
+
+    res.send({status});
     
 });
 
