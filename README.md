@@ -113,15 +113,23 @@ You can configure the logger to use local time if needed.
 
 ## 🧪 Testing
 
-You can test:
+This project uses **[Jest](https://jestjs.io/)** for unit testing.
 
-🔁 **Retry**: Set provider success rate low (e.g., 0.2)
+To run tests:
 
-🔄 **Fallback**: Make ProviderA fail more often than ProviderB
+```
+npm test
+```
 
-🚫 **Rate limit**: Try sending 6+ emails within a minute
+Test cases cover:
 
-🔐 **Idempotency**: Reuse the same id multiple times
+✅ Successful email sending
+
+✅ Idempotency (duplicate ID check)
+
+✅ Rate limiting (5 emails per 60 seconds)
+
+✅ Provider fallback (retry and failover logic)
 
 ---
 
